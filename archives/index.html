@@ -10,14 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="strive forever">
+  <meta name="description" content="保持饥饿和求知">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ylt&#96;blog">
 <meta property="og:url" content="https://yltzdhbc.gitee.io/archives/index.html">
 <meta property="og:site_name" content="ylt&#96;blog">
-<meta property="og:description" content="strive forever">
+<meta property="og:description" content="保持饥饿和求知">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="yuleitao">
+<meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="ylt`blog" type="application/atom+xml">
@@ -70,7 +71,7 @@
 			<h1 class="header-author"><a href="/">yuleitao</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">永远热爱</p>
+		<p class="header-subtitle">Stay hungry, stay foolish.</p>
 		
 
 		<nav class="header-menu">
@@ -136,7 +137,7 @@
 			  <h1 class="header-author js-header-author">yuleitao</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>永远热爱<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Stay hungry, stay foolish.<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -657,56 +658,6 @@
   
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
-  
-    <script type="text/javascript" src="/plugins/live2d-widget.js/L2Dwidget.min.js"></script>
-<script type="text/javascript">
-  /**
-   * 完整配置请参考：https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
-   */
-  var pluginModelPath = "assets/", // 模型的文件路径，无需更改
-    pluginRootPath = "/live2d_models/"; // 插件的路径，无需更改
-  //特定的模型json文件名称
-  var modelPathJson = {
-    "epsilon2_1": "Epsilon2.1",
-    "gf": "Gantzert_Felixander",
-    "haru/01": "haru01",
-    "haru/02": "haru02",
-    "nietzsche": "nietzche"
-  }
-
-  
-    var modelName = "epsilon2_1";
-  
-
-  var modelJsonPath = "";
-  if (modelPathJson[modelName]) {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelPathJson[modelName] +
-      ".model.json";
-  } else {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelName + ".model.json";
-  }
-  L2Dwidget.init({
-    model: {
-      jsonPath: modelJsonPath
-    },
-    display: {
-       position: "right", 
-       width: 135, 
-       height: 305, 
-       hOffset: 40, 
-      
-    },
-    mobile: {
-       show: false, 
-       scale: 0.6 
-    },
-    react: {
-       opacity: 0.8 
-    }
-  })
-
-</script>
-
   
   
 </body>
