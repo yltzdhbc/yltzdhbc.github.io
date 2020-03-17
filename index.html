@@ -64,7 +64,7 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;"></div>
+<div class="overlay" style="background: #48D1CC;"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -116,18 +116,6 @@
 				
 			</div>
 		
-			
-			
-			
-			
-			<div>
-				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=1&height=66"></iframe>
-			</div>
-			
-				
-				<p style="font-size: 12px;">这似乎是首纯音乐，请尽情的欣赏它吧！<p>
-			
-		
 		</nav>
 	</header>		
 </div>
@@ -137,7 +125,7 @@
       
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #48D1CC"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -234,18 +222,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>这个平衡机器人是大概我去年做的，一直没有时间把他写出来，今年刚好有空闲时间，想着整理一下之前的东西，分享给大家！</p>
-<h3 id="BB机器人的原型"><a href="#BB机器人的原型" class="headerlink" title="BB机器人的原型"></a>BB机器人的原型</h3><p><strong>brobot evo2</strong><br>哔哩哔哩地址 <a href="https://www.bilibili.com/video/av78491702/" target="_blank" rel="noopener">https://www.bilibili.com/video/av78491702/</a></p>
-<iframe src="//player.bilibili.com/player.html?aid=78491702&cid=134296267&page=1&as_wide=1&high_quality=1&danmaku=1" 
-scrolling="no" width="960" height="660" 
-border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"> 
-</iframe>
-
-<p><strong>BB机器人第一代</strong><br>哔哩哔哩地址 <a href="https://www.bilibili.com/video/av90333189/" target="_blank" rel="noopener">https://www.bilibili.com/video/av90333189/</a></p>
-<iframe src="//player.bilibili.com/player.html?aid=90333189&cid=154273092&page=1&as_wide=1&high_quality=1&danmaku=1" 
-scrolling="no" width="960" height="660" 
-border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"> 
-</iframe>
+    <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>这个平衡机器人是大概我去年做的，一直没有时间把他写出来，今年刚好有空闲时间，想着整理一下之前的东西！<br><img src="https://img-blog.csdnimg.cn/20200220150915746.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="总览"></p>
     
     
 
@@ -325,68 +302,8 @@ border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="all
 <h2 id="stm32-rosserial"><a href="#stm32-rosserial" class="headerlink" title="stm32 rosserial"></a>stm32 rosserial</h2><p><img src="https://img-blog.csdnimg.cn/20200117142347114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <ul>
 <li>rosserial 是ros官方的一个功能包 <a href="http://wiki.ros.org/rosserial/" target="_blank" rel="noopener">http://wiki.ros.org/rosserial/</a></li>
-<li>rosserial相当于让stm32可以直接在ros网络中发布话题,接入ros,节点的写法和在linux下相同,使用起来也是非常方便<h2 id="USB转TTL"><a href="#USB转TTL" class="headerlink" title="USB转TTL"></a>USB转TTL</h2></li>
-<li>在网上,很多资料都是使用stm32 usart 和usb 转 ttl 来连接的 ,这样因为大部分stm32的定时器是16位,65秒左右会溢出,导致时钟与ros同步不上,会出现 error,虽然不影响实际的通信效果 , 但是看着也很烦人<h2 id="USB-VCP-虚拟串口"><a href="#USB-VCP-虚拟串口" class="headerlink" title="USB VCP 虚拟串口"></a>USB VCP 虚拟串口</h2></li>
-<li>关于stm32虚拟串口的使用可以看我另一篇博文<a href="https://blog.csdn.net/yuleitao/article/details/103285137" target="_blank" rel="noopener">https://blog.csdn.net/yuleitao/article/details/103285137</a></li>
-<li>stm32带有usb接口,开启虚拟串口之后,ubuntu下可以直接识别</li>
-<li>测试中发现VCP和rROS的通信比较稳定,使用USB转TTL,使用1HZ发送消息频率一直达不到1HZ,在0.8~0.98之间飘<h2 id="CUBEMX的配置"><a href="#CUBEMX的配置" class="headerlink" title="CUBEMX的配置"></a>CUBEMX的配置</h2></li>
-</ul>
-<ol>
-<li>RCC<br><img src="https://img-blog.csdnimg.cn/20200117140311974.png" alt="在这里插入图片描述"></li>
-<li>SYS<br><img src="https://img-blog.csdnimg.cn/20200117140335282.png" alt="在这里插入图片描述"></li>
-<li>USB<img src="https://img-blog.csdnimg.cn/20200117140347325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>USB_DEVICE<br><img src="https://img-blog.csdnimg.cn/20200117140435928.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>时钟树<br><img src="https://img-blog.csdnimg.cn/20200117140501596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li><img src="https://img-blog.csdnimg.cn/20200117140602542.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li><img src="https://img-blog.csdnimg.cn/20200117140621802.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="工程文件的配置"><a href="#工程文件的配置" class="headerlink" title="工程文件的配置"></a>工程文件的配置</h2></li>
-<li>复制ROSlib库到工程文件目录下面<br><img src="https://img-blog.csdnimg.cn/20200117140649804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>添加如下四个文件到工程里，并在keil中导入<br><img src="https://img-blog.csdnimg.cn/20200117140743868.png" alt="在这里插入图片描述"><h2 id="KEIL的配置"><a href="#KEIL的配置" class="headerlink" title="KEIL的配置"></a>KEIL的配置</h2></li>
-<li>添加 ,__USE_C99_MATH 到define<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">,__USE_C99_MATH</span><br></pre></td></tr></table></figure></li>
-<li>添加,  –diag_suppress=1,47,1300 , 到misc controls</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--diag_suppress&#x3D;1,47,1300</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20200117140727588.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3. 添加rosmain.h，使用cubemx的话，要添加到BEGAIN 和END之间，这样重新生成代码的时候就不会把我们自己添加的代码覆盖掉了<br><img src="https://img-blog.csdnimg.cn/20200117140718412.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>4. 添加如下函数到指定位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setup();</span><br><span class="line">loop();</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200117140705193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>5. 下载到stm32<br>6. 主要的函数在ros_main.cpp里面，这里延续的arduino的写法，setup里面就是初始化节点，发布一个叫做chatter的话题 ，在loop里面循环调用了publish以1HZ的频率在ros中发布“HELLO WORLD”消息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void setup(void)</span><br><span class="line">&#123;</span><br><span class="line">   nh.initNode();</span><br><span class="line">   nh.advertise(chatter);</span><br><span class="line">&#125;</span><br><span class="line">void loop(void)</span><br><span class="line">&#123;</span><br><span class="line">	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);</span><br><span class="line">	str_msg.data &#x3D; hello;</span><br><span class="line"> 	chatter.publish(&amp;str_msg);</span><br><span class="line"> 	nh.spinOnce();</span><br><span class="line">	HAL_Delay(1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>工程文件在我的GITHUB上 链接<br><a href="https://github.com/yltzdhbc/RosSerialVcp" target="_blank" rel="noopener">https://github.com/yltzdhbc/RosSerialVcp</a><h2 id="在Linux上测试接收stm32发过来的消息"><a href="#在Linux上测试接收stm32发过来的消息" class="headerlink" title="在Linux上测试接收stm32发过来的消息"></a>在Linux上测试接收stm32发过来的消息</h2>使用 ttl 转 usb 一般检测到的是ttyUSB0 , 直接使用USB虚拟串口(VCP)一般检测到的是ttyACM0<ol>
-<li>查看USB设备</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsusb</span><br><span class="line">dmesg | grep tty</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>提高串口权限</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod <span class="number">777</span> /dev/ttyACM0</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><p>linux上要先安装rosserial库，如果有就忽略这一步</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ros-kinetic-serial</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动roscore</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动rosserial 指定端口 /dev/ttyACM0 这里端口可能不一样</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud:=<span class="number">115200</span></span><br></pre></td></tr></table></figure></li>
-<li><p>输入 rostopic echo /chatter 查看topic 内容</p>
-</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rostopic echo /chatter</span><br></pre></td></tr></table></figure>
-
-<ol start="8">
-<li>输入rqt_graph可以查看节点状态图</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rqt_graph</span><br></pre></td></tr></table></figure>
-<ol start="9">
-<li>输入rqt打开topic monitor 可以查看消息的内容和频率</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rqt</span><br></pre></td></tr></table></figure>
-
-
+<li>rosserial相当于让stm32可以直接在ros网络中发布话题,接入ros,节点的写法和在linux下相同,使用起来也是非常方便
+    
     
 
     
