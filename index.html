@@ -12,14 +12,14 @@
   
     
     <!-- <meta name="keywords" content="blog">
-    <meta name="description" content="求知若饥，虚心若愚"> -->
+    <meta name="description" content="求知若饥  虚心若愚"> -->
   
-  <meta name="description" content="求知若饥，虚心若愚">
+  <meta name="description" content="求知若饥  虚心若愚">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ylt&#96;blog">
 <meta property="og:url" content="https://yltzdhbc.gitee.io/index.html">
 <meta property="og:site_name" content="ylt&#96;blog">
-<meta property="og:description" content="求知若饥，虚心若愚">
+<meta property="og:description" content="求知若饥  虚心若愚">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="yuleitao">
 <meta property="article:tag" content="blog">
@@ -28,7 +28,7 @@
     <link rel="alternative" href="/atom.xml" title="ylt`blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/img/head.jpg">
   
   
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
@@ -75,7 +75,7 @@
 			<h1 class="header-author"><a href="/">yuleitao</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">Stay hungry, stay foolish.</p>
+		<p class="header-subtitle">Stay hungry stay foolish</p>
 		
 
 		<nav class="header-menu">
@@ -141,7 +141,7 @@
 			  <h1 class="header-author js-header-author">yuleitao</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Stay hungry, stay foolish.<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Stay hungry stay foolish<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -192,6 +192,102 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-GITHUB国内无法访问的解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/03/18/GITHUB%E5%9B%BD%E5%86%85%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" target="_blank">GITHUB国内无法访问的解决方法</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/03/18/GITHUB%E5%9B%BD%E5%86%85%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
+        <time datetime="2020-03-18T05:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>github无法访问很多时候是由于网络服务商不解析DNS导致的<br>我们只需要自己在电脑中添加对应网址的IP就可以解决</p>
+<p>在该网址查询下面的IP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.ipaddress.com&#x2F;</span><br></pre></td></tr></table></figure>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="Linux下编辑hosts"><a href="#Linux下编辑hosts" class="headerlink" title="Linux下编辑hosts"></a>Linux下编辑hosts</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
+
+<p>将下面三个网址的IP添加到hosts里面，每个人对应的IP可能不一样，而且github的IP地址也是会变的，当然如果你发现无法访问某个网址，只需要查询对应的IP添加进去即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.30.253.112 github.com</span><br><span class="line">199.232.5.194 github.global.ssl.fastly.net</span><br><span class="line">199.232.68.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
+
+<p>重启网络</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;networking restart</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><h3 id="windows下编辑host"><a href="#windows下编辑host" class="headerlink" title="windows下编辑host"></a>windows下编辑host</h3><p>打开weindows terminal<br>默认装了vscode </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code C:\Windows\System32\Drivers\etc\hosts</span><br></pre></td></tr></table></figure>
+<p>或者找到host文件</p>
+<blockquote>
+<p>C:\Windows\System32\Drivers\etc\hosts</p>
+</blockquote>
+<p>添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#github</span><br><span class="line">192.30.253.112 github.com</span><br><span class="line">199.232.5.194 github.global.ssl.fastly.net</span><br><span class="line">199.232.68.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
+<p>刷新网络</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig &#x2F;flushdns</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/03/18/GITHUB%E5%9B%BD%E5%86%85%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-BB机器人-最萌的开源平衡机器人" class="article article-type-post  article-index" itemscope itemprop="blogPost">
