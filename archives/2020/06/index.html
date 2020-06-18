@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yltzdhbc.gitee.io">
-  <title>ylt`blog</title>
+  <title>Archives: 2020/6 | ylt`blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-    
-    <!-- <meta name="keywords" content="blog">
-    <meta name="description" content="求知若饥  虚心若愚"> -->
   
   <meta name="description" content="求知若饥  虚心若愚">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ylt&#96;blog">
-<meta property="og:url" content="https://yltzdhbc.gitee.io/index.html">
+<meta property="og:url" content="https://yltzdhbc.gitee.io/archives/2020/06/index.html">
 <meta property="og:site_name" content="ylt&#96;blog">
 <meta property="og:description" content="求知若饥  虚心若愚">
 <meta property="og:locale" content="zh_CN">
@@ -198,674 +194,53 @@
           </div>
           <div id="js-content" class="content-ll">
             
-
   
-    <article id="post-MazeBot-AI训练机器人" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/06/17/MazeBot-AI%E8%AE%AD%E7%BB%83%E6%9C%BA%E5%99%A8%E4%BA%BA/">MazeBot AI训练机器人</a>
-	
-    </h1>
-  
-
-
-  
-  
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
 <a href="/2020/06/17/MazeBot-AI%E8%AE%AD%E7%BB%83%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="archive-article-date">
         <time datetime="2020-06-17T07:52:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
 </a>
 
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-
-<p>![Mazebot v1 Top_name](MazeBot-AI训练机器人/Mazebot v1 Top_name.png)</p>
-<p>MAzeBot 始于2020年四月份，作为一个机器人研究者和爱好者，希望有一个硬件作为载体满足自己的软件的实验。</p>
-<blockquote>
-<p>感谢，该项目灵感来源于Qbot By稚辉君</p>
-</blockquote>
-<p>MazeBot的硬件资源：</p>
-<table>
-<thead>
-<tr>
-<th>元件</th>
-<th>型号</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>处理器</td>
-<td>STM32F405RGT6</td>
-<td align="left">160MHZ主频 DSP浮点加速</td>
-</tr>
-<tr>
-<td>驱动器</td>
-<td>TB6612</td>
-<td align="left">双路直流电机驱动器</td>
-</tr>
-<tr>
-<td>通讯</td>
-<td>ESP07S</td>
-<td align="left">安信可WiFi芯片</td>
-</tr>
-<tr>
-<td>电机</td>
-<td>N20</td>
-<td align="left">带正交编码器的直流有刷减速电机</td>
-</tr>
-<tr>
-<td>陀螺仪</td>
-<td>mpu9250</td>
-<td align="left">invensense的9轴姿态传感器</td>
-</tr>
-<tr>
-<td>光电传感器</td>
-<td>ITR8307</td>
-<td align="left">收发一体的反射式光电传感器</td>
-</tr>
-<tr>
-<td>显示器</td>
-<td>0.96oled</td>
-<td align="left">SSD1306白黑oled</td>
-</tr>
-</tbody></table>
-<p>MazeBot能够用来干什么呢：</p>
-<ul>
-<li>首先作为一个双轮差速的小车，能够提供最高1m/s的移动速度；</li>
-<li>通过直流电机编码器反馈与mpu9250陀螺仪信息融合获得可靠的里程计信息；</li>
-<li>前置五个光电传感器实现巡线学习；</li>
-<li>oled与三个操作按键进行人机交互；</li>
-<li>WiFi与上位机相连获取信息与控制；</li>
-</ul>
-<p>我准备MazeBot做什么：</p>
-<ul>
-<li>使用OPEN AI 训练其进行巡线；</li>
-<li>使用模型优化轨迹跟踪算法的参数；</li>
-</ul>
-<p>现在MazeBot完成了哪些部分：</p>
-<ul>
-<li><p>电机速度闭环与位置闭环；</p>
-</li>
-<li><p>陀螺仪读取与矫正；</p>
-</li>
-<li><p>基于编码器与陀螺仪的里程计；</p>
-</li>
-<li><p>Wifi AP模式和Station模式与上位机通信；</p>
-</li>
-<li><p>光电传感器对白线与黑线的识别；</p>
-</li>
-<li><p>轨迹规划与跟踪算法；</p>
-</li>
-</ul>
-<p>再让我们欣赏一下图片</p>
-
-<p>![Mazebot v1 Front](MazeBot-AI训练机器人/Mazebot v1 Front.png)</p>
-
-<p>![Mazebot v2 1](MazeBot-AI训练机器人/Mazebot v2 1.png)</p>
-
-<p>![Mazebot v2 2](MazeBot-AI训练机器人/Mazebot v2 2.png)</p>
-
-<p>![Mazebot v2 3](MazeBot-AI训练机器人/Mazebot v2 3.png)</p>
-
-<p>![Mazebot v2 4](MazeBot-AI训练机器人/Mazebot v2 4.png)</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/06/17/MazeBot-AI%E8%AE%AD%E7%BB%83%E6%9C%BA%E5%99%A8%E4%BA%BA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-【开源四足机器人】HCRT-DOG" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
+    	 
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/03/18/%E3%80%90%E5%BC%80%E6%BA%90%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E3%80%91HCRT-DOG/">【开源四足机器人】HCRT-DOG</a>
+	  <a class="archive-article-title" href="/2020/06/17/MazeBot-AI%E8%AE%AD%E7%BB%83%E6%9C%BA%E5%99%A8%E4%BA%BA/">MazeBot AI训练机器人</a>
 	
     </h1>
   
 
 
-  
-  
-<a href="/2020/03/18/%E3%80%90%E5%BC%80%E6%BA%90%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E3%80%91HCRT-DOG/" class="archive-article-date">
-        <time datetime="2020-03-18T10:19:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
-</a>
+        <div class="article-info info-on-right">
+          
+          
 
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <img src="/2020/03/18/%E3%80%90%E5%BC%80%E6%BA%90%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E3%80%91HCRT-DOG/Jump.gif" class="" title="[Jump]">
-
-<p><strong>本项目是一个并联式的四足机器人 每条腿使用了两个电机驱动共四条腿，八个电机期望实现四种步态，从慢到快依次为，行进步态（三足支撑）、小跑步态（两拍步态）、溜蹄步态、疾驰步态。</strong></p>
-<blockquote>
-<p>该软件遵循MIT开源协议，作者保留版权，无任何其他限制，但是你必须在你的软件中包含原MIT授权协议的声明。由于本人时间、能力有限，有许多不足之处，欢迎在GitHub的<code>Issues</code>中留言</p>
-</blockquote>
-<p>我的博客：<a href="https://yltzdhbc.gitee.io/archives/">https://yltzdhbc.gitee.io/archives/</a></p>
-<p>github: <a href="https://github.com/yltzdhbc/MR2" target="_blank" rel="noopener">https://github.com/yltzdhbc/MR2</a></p>
-<p>gitee: <a href="https://gitee.com/yltzdhbc/MR2" target="_blank" rel="noopener">https://gitee.com/yltzdhbc/MR2</a></p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/03/18/%E3%80%90%E5%BC%80%E6%BA%90%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E3%80%91HCRT-DOG/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-GITHUB国内无法访问的解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/03/18/GITHUB%E5%9B%BD%E5%86%85%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">GITHUB国内无法访问的解决方法</a>
-	
-    </h1>
+    </div></section>
   
 
-
-  
-  
-<a href="/2020/03/18/GITHUB%E5%9B%BD%E5%86%85%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
-        <time datetime="2020-03-18T05:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
-</a>
-
-  
-  
     
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>github无法访问很多时候是由于网络服务商不解析DNS导致的<br>我们只需要自己在电脑中添加对应网址的IP就可以解决</p>
-<p>在该网址查询下面的IP</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.ipaddress.com&#x2F;</span><br></pre></td></tr></table></figure>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="Linux下编辑hosts"><a href="#Linux下编辑hosts" class="headerlink" title="Linux下编辑hosts"></a>Linux下编辑hosts</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
-
-<p>将下面三个网址的IP添加到hosts里面，每个人对应的IP可能不一样，而且github的IP地址也是会变的，当然如果你发现无法访问某个网址，只需要查询对应的IP添加进去即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.30.253.112 github.com</span><br><span class="line">199.232.5.194 github.global.ssl.fastly.net</span><br><span class="line">199.232.68.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
-
-<p>重启网络</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;networking restart</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><h3 id="windows下编辑host"><a href="#windows下编辑host" class="headerlink" title="windows下编辑host"></a>windows下编辑host</h3><p>打开weindows terminal<br>默认装了vscode </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code C:\Windows\System32\Drivers\etc\hosts</span><br></pre></td></tr></table></figure>
-<p>或者找到host文件</p>
-<blockquote>
-<p>C:\Windows\System32\Drivers\etc\hosts</p>
-</blockquote>
-<p>添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#github</span><br><span class="line">192.30.253.112 github.com</span><br><span class="line">199.232.5.194 github.global.ssl.fastly.net</span><br><span class="line">199.232.68.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
-<p>刷新网络</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig &#x2F;flushdns</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/03/18/GITHUB%E5%9B%BD%E5%86%85%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-BB机器人-最萌的开源平衡机器人" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/20/BB%E6%9C%BA%E5%99%A8%E4%BA%BA-%E6%9C%80%E8%90%8C%E7%9A%84%E5%BC%80%E6%BA%90%E5%B9%B3%E8%A1%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/">BB机器人-最萌的开源平衡机器人</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/20/BB%E6%9C%BA%E5%99%A8%E4%BA%BA-%E6%9C%80%E8%90%8C%E7%9A%84%E5%BC%80%E6%BA%90%E5%B9%B3%E8%A1%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="archive-article-date">
-        <time datetime="2020-02-20T07:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>这个平衡机器人是大概我去年做的，一直没有时间把他写出来，今年刚好有空闲时间，想着整理一下之前的东西！<br><img src="https://img-blog.csdnimg.cn/20200220150915746.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="总览"></p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/20/BB%E6%9C%BA%E5%99%A8%E4%BA%BA-%E6%9C%80%E8%90%8C%E7%9A%84%E5%BC%80%E6%BA%90%E5%B9%B3%E8%A1%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Stm32-RosSerial-移植" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/19/Stm32-RosSerial-%E7%A7%BB%E6%A4%8D/">Stm32_RosSerial_移植</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/19/Stm32-RosSerial-%E7%A7%BB%E6%A4%8D/" class="archive-article-date">
-        <time datetime="2020-02-19T10:55:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p>工程文件在我的GITHUB上 链接<br><a href="https://github.com/yltzdhbc/RosSerialVcp" target="_blank" rel="noopener">https://github.com/yltzdhbc/RosSerialVcp</a></p>
-<p>最近在做ros，stm32是一个性能强悍的微控制器，适合做底层数据的运算，ROS和stm32通信就是连接这两者的桥梁，花了很多时间去了解这方面的内容，写一篇总结</p>
-<h2 id="stm32-rosserial"><a href="#stm32-rosserial" class="headerlink" title="stm32 rosserial"></a>stm32 rosserial</h2><p><img src="https://img-blog.csdnimg.cn/20200117142347114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1bGVpdGFv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<ul>
-<li>rosserial 是ros官方的一个功能包 <a href="http://wiki.ros.org/rosserial/" target="_blank" rel="noopener">http://wiki.ros.org/rosserial/</a></li>
-<li>rosserial相当于让stm32可以直接在ros网络中发布话题,接入ros,节点的写法和在linux下相同,使用起来也是非常方便
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/19/Stm32-RosSerial-%E7%A7%BB%E6%A4%8D/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bilibli测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/19/bilibli%E6%B5%8B%E8%AF%95/">bilibli测试</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/19/bilibli%E6%B5%8B%E8%AF%95/" class="archive-article-date">
-        <time datetime="2020-02-19T09:24:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>960 x 720</p>
-<iframe src="//player.bilibili.com/player.html?aid=80372406&cid=137517995&page=1&as_wide=1&high_quality=1&danmaku=1" 
-scrolling="no" width="960" height="720" 
-border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"> 
-</iframe>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/19/bilibli%E6%B5%8B%E8%AF%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/13/hello-world/">Hello World</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/13/hello-world/" class="archive-article-date">
-        <time datetime="2020-02-13T04:44:38.941Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/13/hello-world/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -905,9 +280,9 @@ border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="all
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
